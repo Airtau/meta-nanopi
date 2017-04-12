@@ -7,4 +7,6 @@ BBFILES ?= ""
 
 BBLAYERS ?= " \
   ##OEROOT##/meta \
+  ##OEROOT##/meta-openembedded/meta-oe \
+  ##OEROOT##/meta-artik \
   "
