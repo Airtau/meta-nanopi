@@ -22,4 +22,12 @@ SRCREV_pn-${PN} = "645019bce81bb088d150a90b41d19cf1da1facac"
 SRC_URI = " \
 	git://github.com/megous/linux.git;branch=orange-pi-4.10 \
 	file://defconfig \
+	file://add-configfs-overlay-for-v4.10.x.patch \
+	file://add-h3-aliases.patch \
+	file://add-h3-overlays.patch \
+	file://add-overlay-compilation-support.patch \
+	file://add-uart-rts-cts-pins.patch \
+	file://scripts-dtc-Update-to-version-with-overlays.patch \
+	file://spidev-remove-warnings.patch \
+	file://spi-sun6i-allow-large-transfers.patch \
 	"
