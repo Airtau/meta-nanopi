@@ -8,16 +8,16 @@ IMAGE_TYPEDEP_nanopi-sdimg = "${SDIMG_ROOTFS_TYPE}"
 BOOTDD_VOLUME_ID ?= "${MACHINE}"
 
 # Boot partition size [in KiB] (will be rounded up to IMAGE_ROOTFS_ALIGNMENT)
-BOOT_SPACE ?= "65536"
+BOOT_SPACE ?= "32768"
 
-# Set alignment to 4MB [in KiB]
-IMAGE_ROOTFS_ALIGNMENT = "4096"
+# Set alignment to 2MB [in KiB]
+IMAGE_ROOTFS_ALIGNMENT = "2048"
 
 # Use an uncompressed ext4 by default as rootfs
 SDIMG_ROOTFS_TYPE ?= "ext4"
 SDIMG_ROOTFS = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
 
-IMAGE_DEPENDS_nanopi-sdimg = " \
+IMAGE_DEPENDS_nanopi-sdimg += " \
 	parted-native \
 	mtools-native \
 	dosfstools-native \
@@ -61,6 +61,9 @@ IMAGE_CMD_nanopi-sdimg () {
 
 	# Burn partitions
 	dd if=${WORKDIR}/boot.img of=${SDIMG} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync
+
+	# Copy rootfs
+	dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync
 
 	# Write u-boot and spl
 	dd if=${DEPLOY_DIR_IMAGE}/u-boot-sunxi-with-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc && sync
