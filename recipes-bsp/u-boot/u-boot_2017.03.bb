@@ -33,6 +33,8 @@ S = "${WORKDIR}/git"
 UBOOT_ENV_SUFFIX = "scr"
 UBOOT_ENV = "boot"
 
+SPL_BINARY="u-boot-sunxi-with-spl.bin"
+
 do_compile_append() {
     ${B}/tools/mkimage -C none -A arm -T script -d ${WORKDIR}/boot-nanopi.cmd ${WORKDIR}/${UBOOT_ENV_BINARY}
 }
