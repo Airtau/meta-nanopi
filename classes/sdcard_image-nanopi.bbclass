@@ -59,6 +59,20 @@ IMAGE_CMD_nanopi-sdimg () {
 	# Copy u-boot script
 	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/boot.scr ::
 
+	# Copy device tree files
+	mmd -i ${WORKDIR}/boot.img overlays
+	if test -n "${KERNEL_DEVICETREE}"; then
+		for DTS_NAME in ${KERNEL_DEVICETREE}; do
+			DTS_BASE_NAME=`basename ${DTS_NAME} | awk -F "." '{print $1}'`
+			DTS_FILE="${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}"
+			if [ -e "${DTS_FILE}.dtb" ]; then
+				mcopy -i ${WORKDIR}/boot.img -s ${DTS_FILE}.dtb ::${DTS_BASE_NAME}.dtb
+			else
+				mcopy -i ${WORKDIR}/boot.img -s ${DTS_FILE}.dtbo ::overlays/${DTS_BASE_NAME}.dtbo
+			fi
+		done
+	fi
+
 	# Burn partitions
 	dd if=${WORKDIR}/boot.img of=${SDIMG} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync
 
