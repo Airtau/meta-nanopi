@@ -38,5 +38,14 @@ IMAGE_CMD_nanopi-sdimg () {
 
 	# Initialize sdcard image file
 	dd if=/dev/zero of=${SDIMG} bs=1024 count=0 seek=${SDIMG_SIZE}
+
+	# Create partition table
+	parted -s ${SDIMG} mklabel msdos
+	# Create boot partition and mark it as bootable
+	parted -s ${SDIMG} unit KiB mkpart primary fat32 ${IMAGE_ROOTFS_ALIGNMENT} $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT})
+	parted -s ${SDIMG} set 1 boot on
+	# Create rootfs partition to the end of disk
+	parted -s ${SDIMG} -- unit KiB mkpart primary ext2 $(expr ${BOOT_SPACE_ALIGNED} \+ ${IMAGE_ROOTFS_ALIGNMENT}) -1s
+	parted ${SDIMG} print
 }
 
