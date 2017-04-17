@@ -1,13 +1,65 @@
-SUMMARY = "console image for nanopi-neo."
+require recipes-core/images/core-image-minimal.bb
 
-IMAGE_INSTALL = "packagegroup-core-boot ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL}"
+DESCRIPTION = "console image for nanopi-neo"
 
-IMAGE_LINGUAS = " "
+IMAGE_FEATURES += "ssh-server-openssh"
 
-LICENSE = "MIT"
+KERNEL_PKG_INSTALL = " \
+	kernel-modules \
+	"
 
-inherit core-image
+SYSTEM_PKG_INSTALL = " \
+	apmd \
+	e2fsprogs e2fsprogs-e2fsck e2fsprogs-mke2fs e2fsprogs-resize2fs \
+	parted dosfstools \
+	"
 
-IMAGE_ROOTFS_SIZE ?= "8192"
-IMAGE_ROOTFS_EXTRA_SPACE_append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "" ,d)}"
+LIB_PKG_INSTALL = " \
+	glib-2.0 \
+	"
 
+UTILS_PKG_INSTALL = " \
+	coreutils \
+	usbutils \
+	bash findutils grep \
+	sed tar zlib \
+	screen usb-modeswitch tzdata \
+	"
+
+# packagegroup-core-buildessential
+DEV_PKG_INSTALL = " \
+	nano \
+	autoconf \
+	automake \
+	binutils \
+	binutils-symlinks \
+	cpp \
+	cpp-symlinks \
+	gcc \
+	gcc-symlinks \
+	g++ \
+	g++-symlinks \
+	gettext \
+	make \
+	libstdc++ \
+	libstdc++-dev \
+	libtool \
+	pkgconfig \
+	"
+
+NETWORK_PKG_INSTALL = " \
+	net-tools \
+	ppp ppp-dialin \
+	wireless-tools wpa-supplicant \
+	wget curl \
+	iproute2 iputils \
+	"
+
+IMAGE_INSTALL += " \
+	${KERNEL_PKG_INSTALL} \
+	${SYSTEM_PKG_INSTALL} \
+	${LIB_PKG_INSTALL} \
+	${UTILS_PKG_INSTALL} \
+	${DEV_PKG_INSTALL} \
+	${NETWORK_PKG_INSTALL} \
+	"
