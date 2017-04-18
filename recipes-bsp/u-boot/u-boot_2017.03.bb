@@ -44,5 +44,5 @@ do_compile_append() {
 
 do_deploy_append() {
     echo "overlay_prefix=sun8i-h3" > ${DEPLOYDIR}/boot-config.txt
-    echo "overlays=spi-spidev usbhost0" >> ${DEPLOYDIR}/boot-config.txt
+    echo "overlays=spi-spidev i2c0 uart1 uart2 usbhost0 usbhost2 usbhost3" >> ${DEPLOYDIR}/boot-config.txt
 }

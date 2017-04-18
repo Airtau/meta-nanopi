@@ -70,6 +70,8 @@ IMAGE_CMD_nanopi-sdimg () {
 			DTS_FILE="${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}"
 			if [ -e "${DTS_FILE}.dtb" ]; then
 				mcopy -i ${WORKDIR}/boot.img -s ${DTS_FILE}.dtb ::${DTS_BASE_NAME}.dtb
+			elif [ -e "${DTS_FILE}.scr" ]; then
+				mcopy -i ${WORKDIR}/boot.img -s ${DTS_FILE}.scr ::overlays/${DTS_BASE_NAME}.scr
 			else
 				mcopy -i ${WORKDIR}/boot.img -s ${DTS_FILE}.dtbo ::overlays/${DTS_BASE_NAME}.dtbo
 			fi
