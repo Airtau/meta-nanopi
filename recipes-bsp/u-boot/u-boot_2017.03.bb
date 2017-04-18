@@ -19,8 +19,11 @@ LIC_FILES_CHKSUM = "\
     file://Licenses/x11.txt;md5=b46f176c847b8742db02126fb8af92e2 \
     "
 
-SRC_URI = "git://git.denx.de/u-boot.git;branch=master \
-           file://boot-nanopi.cmd"
+SRC_URI = " \
+    git://git.denx.de/u-boot.git;branch=master \
+    file://enable-dt-overlays-support.patch \
+    file://boot-nanopi.cmd \
+    "
 
 SRCREV = "8537ddd769f460d7fb7a62a3dcc9669049702e51"
 
@@ -40,5 +43,6 @@ do_compile_append() {
 }
 
 do_deploy_append() {
-    echo "overlays=spi-spidev usbhost0" > ${DEPLOYDIR}/boot-config.txt
+    echo "overlay_prefix=sun8i-h3" > ${DEPLOYDIR}/boot-config.txt
+    echo "overlays=spi-spidev usbhost0" >> ${DEPLOYDIR}/boot-config.txt
 }

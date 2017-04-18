@@ -7,6 +7,20 @@ if test -e mmc 0:1 config.txt; then
 	env import -t ${load_addr} ${filesize}
 fi
 
-load mmc 0:1 ${fdt_addr_r} ${fdtfile}
+# load kernel
 load mmc 0:1 ${kernel_addr_r} uImage
+
+# load device tree
+load mmc 0:1 ${fdt_addr_r} ${fdtfile}
+fdt addr ${fdt_addr_r}
+
+# load overlays
+fdt resize
+for overlay in ${overlays}; do
+	if load mmc 0:1 ${load_addr} overlays/${overlay_prefix}-${overlay}.dtbo; then
+		echo "Applying ${overlay} overlay"
+		fdt apply ${load_addr}
+	fi
+done
+
 bootm ${kernel_addr_r} - ${fdt_addr_r}
