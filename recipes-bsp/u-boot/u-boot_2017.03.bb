@@ -43,6 +43,9 @@ do_compile_append() {
 }
 
 do_deploy_append() {
-    echo "overlay_prefix=sun8i-h3" > ${DEPLOYDIR}/boot-config.txt
+    echo "rootfstype=ext4" > ${DEPLOYDIR}/boot-config.txt
+    echo "extraargs=loglevel=3" >> ${DEPLOYDIR}/boot-config.txt
+    echo "overlay_prefix=sun8i-h3" >> ${DEPLOYDIR}/boot-config.txt
     echo "overlays=spi-spidev i2c0 uart1 uart2 usbhost0 usbhost2 usbhost3" >> ${DEPLOYDIR}/boot-config.txt
+    echo "param_spidev_spi_bus=0" >> ${DEPLOYDIR}/boot-config.txt
 }
