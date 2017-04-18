@@ -1,0 +1,12 @@
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 0a05662..a605e19 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -758,6 +758,7 @@ config ARCH_SUNXI
+ 	select DM_USB if DISTRO_DEFAULTS
+ 	select OF_BOARD_SETUP
+ 	select OF_CONTROL
++	select OF_LIBFDT_OVERLAY
+ 	select OF_SEPARATE
+ 	select SPL_STACK_R if SUPPORT_SPL
+ 	select SPL_SYS_MALLOC_SIMPLE if SUPPORT_SPL
