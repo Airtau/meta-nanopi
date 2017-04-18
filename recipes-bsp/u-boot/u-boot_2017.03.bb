@@ -38,3 +38,7 @@ SPL_BINARY="u-boot-sunxi-with-spl.bin"
 do_compile_append() {
     ${B}/tools/mkimage -C none -A arm -T script -d ${WORKDIR}/boot-nanopi.cmd ${WORKDIR}/${UBOOT_ENV_BINARY}
 }
+
+do_deploy_append() {
+    echo "overlays=spi-spidev usbhost0" > ${DEPLOYDIR}/boot-config.txt
+}

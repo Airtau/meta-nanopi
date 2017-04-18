@@ -59,6 +59,9 @@ IMAGE_CMD_nanopi-sdimg () {
 	# Copy u-boot script
 	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/boot.scr ::
 
+	# Copy config.txt
+	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/boot-config.txt ::config.txt
+
 	# Copy device tree files
 	mmd -i ${WORKDIR}/boot.img overlays
 	if test -n "${KERNEL_DEVICETREE}"; then
