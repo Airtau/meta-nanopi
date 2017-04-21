@@ -27,6 +27,7 @@ SRC_URI = " \
 	file://add-h3-overlays.patch \
 	file://add-overlay-compilation-support.patch \
 	file://add-uart-rts-cts-pins.patch \
+	file://nanopi-dvfs-and-emac.patch \
 	file://scripts-dtc-Update-to-version-with-overlays.patch \
 	file://spidev-remove-warnings.patch \
 	file://spi-sun6i-allow-large-transfers.patch \
