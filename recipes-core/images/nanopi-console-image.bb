@@ -48,7 +48,7 @@ DEV_PKG_INSTALL = " \
 	"
 
 NETWORK_PKG_INSTALL = " \
-	net-tools \
+	net-tools dhcpcd \
 	ppp ppp-dialin \
 	wireless-tools wpa-supplicant \
 	wget curl \
