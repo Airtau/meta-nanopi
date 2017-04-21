@@ -21,7 +21,11 @@ LIC_FILES_CHKSUM = "\
 
 SRC_URI = " \
     git://git.denx.de/u-boot.git;branch=master \
+    file://adjust-nanopi-neo-cpufreq.patch \
     file://enable-dt-overlays-support.patch \
+    file://h3-enable-power-led.patch \
+    file://h3-fix-pll1-setup.patch \
+    file://h3-set-safe-axi_apb-clock-dividers.patch \
     file://boot-nanopi.cmd \
     "
 
