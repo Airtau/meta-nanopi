@@ -1,8 +1,5 @@
-require recipes-core/images/core-image-minimal.bb
-
 DESCRIPTION = "console image for nanopi-neo"
 
-IMAGE_FEATURES += "ssh-server-openssh"
 
 KERNEL_PKG_INSTALL = " \
 	kernel-modules \
@@ -48,14 +45,18 @@ DEV_PKG_INSTALL = " \
 	"
 
 NETWORK_PKG_INSTALL = " \
-	net-tools dhcpcd \
+	net-tools busybox-udhcpc busybox-udhcpd \
 	ppp ppp-dialin \
 	wireless-tools wpa-supplicant \
 	wget curl \
 	iproute2 iputils \
 	"
 
-IMAGE_INSTALL += " \
+IMAGE_INSTALL = " \
+	packagegroup-core-boot \
+	packagegroup-base-extended \
+	packagegroup-core-ssh-openssh \
+	\
 	${KERNEL_PKG_INSTALL} \
 	${SYSTEM_PKG_INSTALL} \
 	${LIB_PKG_INSTALL} \
@@ -63,3 +64,9 @@ IMAGE_INSTALL += " \
 	${DEV_PKG_INSTALL} \
 	${NETWORK_PKG_INSTALL} \
 	"
+
+IMAGE_FEATURES = "${EXTRA_IMAGE_FEATURES}"
+
+IMAGE_LINGUAS = " "
+
+inherit image
