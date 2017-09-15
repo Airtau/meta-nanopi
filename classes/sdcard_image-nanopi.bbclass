@@ -21,8 +21,8 @@ IMAGE_DEPENDS_nanopi-sdimg += " \
 	parted-native \
 	mtools-native \
 	dosfstools-native \
-	virtual/kernel \
-	u-boot \
+	virtual/bootloader:do_deploy \
+	virtual/kernel:do_deploy \
 	"
 
 # SD card image name
@@ -79,12 +79,12 @@ IMAGE_CMD_nanopi-sdimg () {
 	fi
 
 	# Burn partitions
-	dd if=${WORKDIR}/boot.img of=${SDIMG} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync
+	dd if=${WORKDIR}/boot.img of=${SDIMG} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 
 	# Copy rootfs
-	dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync
+	dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 
 	# Write u-boot and spl
-	dd if=${DEPLOY_DIR_IMAGE}/u-boot-sunxi-with-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc && sync
+	dd if=${DEPLOY_DIR_IMAGE}/u-boot-sunxi-with-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc && sync && sync
 }
 
