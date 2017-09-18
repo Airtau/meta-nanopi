@@ -25,4 +25,5 @@ SRC_URI = " \
 	file://add-configfs-overlay-for-v4.13.x.patch \
 	file://add-h3-overlays.patch \
 	file://add-overlay-compilation-support.patch \
+	file://nanopi-emac-and-hdmi.patch \
 	"
