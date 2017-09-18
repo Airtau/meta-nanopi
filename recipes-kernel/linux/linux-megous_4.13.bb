@@ -16,19 +16,13 @@ KCONFIG_MODE = "--alldefconfig"
 
 S = "${WORKDIR}/git"
 
-PV = "4.10"
-SRCREV_pn-${PN} = "645019bce81bb088d150a90b41d19cf1da1facac"
+PV = "4.13"
+SRCREV_pn-${PN} = "c173fe35989ed23e9f14379550a056969ef6140c"
 
 SRC_URI = " \
-	git://github.com/megous/linux.git;branch=orange-pi-4.10 \
+	git://github.com/megous/linux.git;branch=orange-pi-4.13 \
 	file://defconfig \
-	file://add-configfs-overlay-for-v4.10.x.patch \
-	file://add-h3-aliases.patch \
+	file://add-configfs-overlay-for-v4.13.x.patch \
 	file://add-h3-overlays.patch \
 	file://add-overlay-compilation-support.patch \
-	file://add-uart-rts-cts-pins.patch \
-	file://nanopi-dvfs-and-emac.patch \
-	file://scripts-dtc-Update-to-version-with-overlays.patch \
-	file://spidev-remove-warnings.patch \
-	file://spi-sun6i-allow-large-transfers.patch \
 	"

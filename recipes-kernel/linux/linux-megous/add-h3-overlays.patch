@@ -358,8 +358,9 @@ new file mode 100644
 index 00000000..ddcd8e84
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-analog-codec.dts
-@@ -0,0 +1,16 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,17 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -380,8 +381,9 @@ new file mode 100644
 index 00000000..f611d823
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-cir.dts
-@@ -0,0 +1,14 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,15 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -551,8 +553,9 @@ new file mode 100644
 index 00000000..265d7a67
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-i2c-ds1307.dts
-@@ -0,0 +1,53 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,54 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -610,8 +613,9 @@ new file mode 100644
 index 00000000..5377cc67
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-i2c0.dts
-@@ -0,0 +1,19 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,20 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -635,8 +639,9 @@ new file mode 100644
 index 00000000..36291c51
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-i2c1.dts
-@@ -0,0 +1,19 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,20 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -660,8 +665,9 @@ new file mode 100644
 index 00000000..0e1de089
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-i2c2.dts
-@@ -0,0 +1,19 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,20 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -685,8 +691,9 @@ new file mode 100644
 index 00000000..79459304
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-pps-gpio.dts
-@@ -0,0 +1,28 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,29 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -719,8 +726,9 @@ new file mode 100644
 index 00000000..1d2b6a7d
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-pwm.dts
-@@ -0,0 +1,38 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,39 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -763,8 +771,9 @@ new file mode 100644
 index 00000000..0d5a3470
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-spdif-out.dts
-@@ -0,0 +1,37 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,38 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -806,8 +815,9 @@ new file mode 100644
 index 00000000..021cf435
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-spi-add-cs1.dts
-@@ -0,0 +1,40 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,41 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -852,8 +862,9 @@ new file mode 100644
 index 00000000..4509a39d
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-spi-jedec-nor.dts
-@@ -0,0 +1,41 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,42 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -899,8 +910,9 @@ new file mode 100644
 index 00000000..5ba86808
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-spi-mcp2515.dts
-@@ -0,0 +1,77 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,78 @@
++/dts-v1/;
++/plugin/;
 +
 +#include <dt-bindings/interrupt-controller/irq.h>
 +
@@ -982,8 +994,9 @@ new file mode 100644
 index 00000000..ddeaab94
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-spi-spidev.dts
-@@ -0,0 +1,41 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,42 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -1029,8 +1042,9 @@ new file mode 100644
 index 00000000..902e3e5a
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-uart1.dts
-@@ -0,0 +1,21 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,22 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -1056,8 +1070,9 @@ new file mode 100644
 index 00000000..8a910690
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-uart2.dts
-@@ -0,0 +1,21 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,22 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -1083,8 +1098,9 @@ new file mode 100644
 index 00000000..3f729d45
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-uart3.dts
-@@ -0,0 +1,21 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,22 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -1110,8 +1126,9 @@ new file mode 100644
 index 00000000..1eef96c1
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-usbhost0.dts
-@@ -0,0 +1,19 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,20 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -1135,8 +1152,9 @@ new file mode 100644
 index 00000000..97199aad
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-usbhost2.dts
-@@ -0,0 +1,19 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,20 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -1160,8 +1178,9 @@ new file mode 100644
 index 00000000..99155b16
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-usbhost3.dts
-@@ -0,0 +1,19 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,20 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
@@ -1185,8 +1204,9 @@ new file mode 100644
 index 00000000..24a0c2a4
 --- /dev/null
 +++ b/arch/arm/boot/dts/overlay/sun8i-h3-w1-gpio.dts
-@@ -0,0 +1,28 @@
-+/dts-v1/ /plugin/;
+@@ -0,0 +1,29 @@
++/dts-v1/;
++/plugin/;
 +
 +/ {
 +	compatible = "allwinner,sun8i-h3";
